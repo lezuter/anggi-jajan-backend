@@ -25,5 +25,11 @@ Sensitive configuration files (`.env`) containing API Keys and Database credenti
 
 ## 📂 Project Structure
 
+├── controllers/ # Request logic 
+├── routes/ # API endpoints
+├── config/ # Database & variable config
+├── services/ # Third-party API logic (Tripay/Digiflazz) 
+└── app.js # Entry point
+
 ---
 **Developed by [Derry Andhika](https://www.linkedin.com/in/lezut3r/)**
