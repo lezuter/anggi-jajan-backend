@@ -1,0 +1,58 @@
+/* --- NAVBAR --- */
+.navbar {
+  background-color: var(--bg-dark-2);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.8rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.navbar-logo svg {
+  height: 32px;
+  width: auto;
+  fill: var(--primary-green);
+}
+
+/* --- SALDO BOX --- */
+.saldo-box {
+  background-color: var(--bg-dark-3);
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+.saldo-box span {
+  font-weight: 700;
+  color: var(--primary-green);
+}
+
+/* --- LOGOUT BUTTON --- */
+.logout-btn {
+  background: transparent;
+  border: 1px solid var(--danger-red);
+  color: var(--danger-red);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.logout-btn:hover {
+  background: var(--danger-red);
+  color: #fff;
+}

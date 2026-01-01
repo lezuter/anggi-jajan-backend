@@ -1,0 +1,172 @@
+.jajan-page {
+  padding: 2rem;
+}
+
+.jajan-page h1 {
+  font-family: 'LezuterV2', var(--font-sans);
+  font-size: 1.5rem;
+  color: var(--primary-green);
+  margin-bottom: 1.5rem;
+}
+
+.jajan-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.jajan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.jajan-card {
+  background: var(--bg-dark-2);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jajan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+.jajan-card img {
+  width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.jajan-name {
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 0.3rem;
+}
+
+.jajan-price {
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+}
+
+.jajan-card .btn-buy {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--border-radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.jajan-card .btn-buy:hover {
+  background: #00a84f;
+}
+
+/* --- STYLE UNTUK SEARCH SUGGESTION --- */
+#gameSearchInput {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-dark-1); /* Warna input gelap */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--text-light);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#gameSearchInput:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(204, 255, 0, 0.1);
+}
+
+/* 2. Style Dropdown Suggestion (Ngambang & Rapi) */
+/* --- PAKSA SUGGESTION HORIZONTAL --- */
+
+/* 1. Container Item: Wajib Flex Row (Kiri ke Kanan) */
+.suggestion-item {
+    display: flex !important;           /* Kunci utama: biar sejajar */
+    flex-direction: row !important;     /* Pastikan arahnya horizontal */
+    align-items: center !important;     /* Tengahin vertikal biar rapi */
+    justify-content: flex-start !important; /* Mulai dari kiri */
+    gap: 15px !important;               /* Jarak antara gambar & teks */
+    
+    width: 100%;
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    background: var(--bg-dark-2);       /* Pastikan background gelap */
+    box-sizing: border-box;
+}
+
+.suggestion-item:hover {
+    background-color: var(--bg-dark-3);
+}
+
+/* 2. Gambar: Ukuran Fix & Gak Boleh Berubah */
+.suggestion-thumb {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;         /* Anti gepeng */
+    min-height: 50px !important;        /* Anti gepeng */
+    
+    border-radius: 6px;
+    object-fit: cover;
+    background-color: #000;
+    border: 1px solid var(--border-color);
+    
+    margin: 0 !important;               /* Hapus margin aneh2 */
+    display: block !important;
+}
+
+/* 3. Info Teks: Numpuk Vertikal (Nama di atas Kode) */
+.suggestion-info {
+    display: flex !important;
+    flex-direction: column !important;  /* Nama di atas, Kode di bawah */
+    justify-content: center;
+    text-align: left;
+    flex: 1;                            /* Ambil sisa ruang yang ada */
+}
+
+.suggestion-name {
+    font-weight: bold;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.2;
+    margin-bottom: 4px;                 /* Jarak dikit ke kode */
+}
+
+.suggestion-code {
+    font-size: 0.75rem;
+    color: var(--primary-green);
+    background: rgba(204, 255, 0, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+/* 4. Container Utama Dropdown */
+.suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-dark-2);
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 8px 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}

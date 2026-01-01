@@ -1,0 +1,64 @@
+/* --- TABLE WRAPPER --- */
+.table-wrapper {
+  overflow-x: auto;
+  background: var(--bg-dark-2);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
+}
+
+/* TABLE BASE */
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table-wrapper thead {
+  background-color: var(--bg-dark-3);
+}
+
+.table-wrapper thead th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table-wrapper tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.2s ease;
+}
+
+.table-wrapper tbody tr:hover {
+  background-color: var(--bg-dark-3);
+}
+
+.table-wrapper td {
+  padding: 0.75rem 1rem;
+  color: var(--text-light);
+  vertical-align: middle;
+}
+
+/* ICON IN TABLE */
+.table-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* STATUS BADGE */
+.status-badge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-success { background-color: rgba(0,200,81,0.15); color: var(--primary-green); }
+.status-pending { background-color: rgba(255,193,7,0.15); color: #ffc107; }
+.status-failed { background-color: rgba(220,53,69,0.15); color: var(--danger-red); }

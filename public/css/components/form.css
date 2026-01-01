@@ -1,0 +1,59 @@
+/* --- FORM GROUP (wrapper setiap input) --- */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+/* --- INPUT, SELECT, TEXTAREA --- */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-dark-1);
+  color: var(--text-light);
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(204, 255, 0, 0.2);
+}
+
+/* --- TEXTAREA --- */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* --- DISABLED STATE --- */
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- INLINE INPUT GROUP (misal untuk harga + satuan) --- */
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-group input {
+  flex: 1;
+}

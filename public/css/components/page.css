@@ -1,0 +1,30 @@
+/* --- PAGE CONTAINER --- */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* --- PAGE TITLE --- */
+.page-container h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+/* --- PAGE SECTIONS (spacing antar card/section) --- */
+.page-section {
+  margin-top: 2rem;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .page-container h1 {
+    font-size: 1.25rem;
+  }
+}

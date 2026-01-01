@@ -1,0 +1,117 @@
+<div class="page-container">
+    <h1>Kelola Metode Pembayaran</h1>
+    <div class="payment-management">
+        <div class="payment-management__toolbar">
+            <div class="payment-management__action-buttons">
+                <button class="btn btn-danger" id="bulkDeleteBtn" style="display: none;">
+                    <span>🗑️</span> Hapus yang Dipilih
+                </button>
+                <button class="btn btn-secondary" id="reorderGroupBtn"><span>🔧</span> Atur Urutan Grup</button>
+                <button class="btn btn-primary" id="addMethodBtn"><span>➕</span> Tambah Metode Baru</button>
+            </div>
+        </div>
+        <div class="payment-management__table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAllCheckbox"></th>
+                        <th>Status</th>
+                        <th>Ikon</th>
+                        <th>Nama Metode</th>
+                        <th>Kode</th>
+                        <th>Grup</th>
+                        <th>Biaya (Rp)</th>
+                        <th>Urutan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="paymentTableBody"></tbody>
+            </table>
+        </div>
+        <div class="payment-management__footer">
+            <div class="entries-selector">
+                <label for="limitSelect">Tampilkan:</label>
+                <select id="limitSelect">
+                    <option value="25" selected>25</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                </select>
+                <span>baris</span>
+            </div>
+            <div class="pagination-controls" id="paginationControls"></div>
+        </div>
+    </div>
+</div>
+
+<div id="reorderGroupModal" class="modal reorder-group-modal">
+    <div class="modal__content" style="max-width: 500px;">
+        <div class="modal__header">
+            <h2 class="modal__title">Atur Urutan Grup</h2>
+            <button class="modal__close-btn">&times;</button>
+        </div>
+        <div class="modal__body">
+            <p>Geser (drag & drop) item untuk mengubah urutan.</p>
+            <ul id="sortable-group-list" class="sortable-list"></ul>
+        </div>
+        <div class="modal__footer">
+            <button class="btn btn-primary" id="saveOrderBtn">Simpan Urutan</button>
+        </div>
+    </div>
+</div>
+
+<div id="paymentModal" class="modal payment-method-modal">
+    <div class="modal__content" style="max-width: 500px;">
+        <div class="modal__header">
+            <h2 id="paymentModalTitle" class="modal__title">Tambah Metode Baru</h2>
+            <button class="modal__close-btn">&times;</button>
+        </div>
+        <form id="paymentForm" class="modal__form">
+            <div class="modal__body">
+                <input type="hidden" name="formMode" value="add">
+                <input type="hidden" name="paymentId">
+
+                <div class="modal__form-group">
+                    <label for="name">Nama Metode</label>
+                    <input type="text" id="name" name="name" placeholder="cth: GoPay" required>
+                </div>
+                <div class="modal__form-group">
+                    <label for="code">Kode (Unik & Otomatis Uppercase)</label>
+                    <input type="text" id="code" name="code" placeholder="cth: GOPAY" required>
+                </div>
+                <div class="modal__form-group">
+                    <label for="fee">Biaya Transaksi (Rp)</label>
+                    <input type="number" id="fee" name="fee" value="0" required min="0">
+                </div>
+                <div class="modal__form-group">
+                    <label for="group_name">Grup</label>
+                    <select id="group_name" name="group_name">
+                        <option value="E-Wallet">E-Wallet</option>
+                        <option value="Virtual Account">Virtual Account</option>
+                        <option value="Pulsa">Pulsa</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+                <div class="modal__form-group">
+                    <label for="icon_url">URL Ikon/Logo</label>
+                    <input type="text" id="icon_url" name="icon_url" placeholder="https://.../gopay.png">
+                </div>
+                <div class="modal__form-group">
+                    <label for="is_active">Status</label>
+                    <div class="toggle-wrapper">
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="is_active" name="is_active" class="toggle-input" checked>
+                            <label for="is_active" class="toggle-label"></label>
+                        </div>
+                        <span id="toggle-status-text" class="toggle-status"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script src="../js/payment.js"></script>

@@ -1,0 +1,77 @@
+.
+├── apigames.txt
+├── app.js
+├── controllers
+│   ├── admin.js
+│   ├── cards.js
+│   ├── carousel.js
+│   ├── paymentMethods.js
+│   ├── products.js
+│   ├── sections.js
+│   ├── transactions.js
+│   ├── userValidation.js
+│   ├── users.js
+│   └── webhook.js
+├── database.pdf
+├── db
+│   └── db.js
+├── middleware
+│   ├── auth.js
+│   └── uploadMiddleware.js
+├── package-lock.json
+├── package.json
+├── public
+│   ├── Produk Tokovoucher.xls.xlsx
+│   ├── content
+│   ├── content.JSON
+│   ├── css
+│   │   ├── admin.css
+│   │   ├── index.css
+│   │   └── order.css
+│   ├── data_final.json
+│   ├── fonts
+│   │   ├── LezuterVol1-Regular.ttf
+│   │   └── LezuterVol1-Regular.woff2
+│   ├── html
+│   │   ├── card.html
+│   │   ├── carousel.html
+│   │   ├── dashboard.html
+│   │   ├── order.html
+│   │   ├── payment.html
+│   │   └── products.html
+│   ├── images
+│   │   ├── Background
+│   │   ├── card
+│   │   ├── carousel
+│   │   ├── icon
+│   │   ├── logo
+│   │   ├── payment
+│   │   └── product
+│   ├── index.html
+│   ├── js
+│   │   ├── card.js
+│   │   ├── carousel.js
+│   │   ├── order.js
+│   │   ├── payment.js
+│   │   ├── products.js
+│   │   └── script.js
+│   ├── node_module
+│   │   └── dotenv
+│   ├── package-lock.json
+│   └── package.json
+├── routes
+│   ├── admin.js
+│   ├── cards.js
+│   ├── carousel.js
+│   ├── pageRoutes.js
+│   ├── paymentMethods.js
+│   ├── products.js
+│   ├── sections.js
+│   ├── transactions.js
+│   ├── userValidation.js
+│   ├── users.js
+│   └── webhook.js
+├── test-db.js
+└── {
+
+20 directories, 55 files

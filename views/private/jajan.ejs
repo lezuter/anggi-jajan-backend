@@ -1,0 +1,76 @@
+<div class="page-container">
+    <h1>Jajan Langsung (Manual)</h1>
+
+    <div class="jajan-management">
+        <p class="jajan-management__description">
+            Gunakan form ini untuk memproses pesanan manual tanpa melalui payment gateway.
+        </p>
+
+        <form id="manualOrderForm" class="jajan-management__form">
+            <div class="jajan-management__form-group" style="position: relative;">
+                <label for="gameSearchInput">Pilih Game</label>
+                <input type="text" id="gameSearchInput" placeholder="Ketik Nama Game..." autocomplete="off">
+                <input type="hidden" id="gameSelect" name="game_code" required>
+                <div id="gameSuggestions" class="suggestions-dropdown" style="display: none;"></div>
+            </div>
+
+            <div class="jajan-management__form-group" id="userInputFields">
+            </div>
+
+            <div class="jajan-management__form-group">
+                <label for="productSelect">Pilih Nominal Produk</label>
+                <select id="productSelect" name="product_code" required disabled></select>
+            </div>
+
+            <div class="jajan-management__form-group" id="priceDisplayContainer" style="display: none;">
+                <p id="basePriceDisplay" class="jajan-management__base-price">Harga Modal: <span>-</span></p>
+                <label class="jajan-management__price-label">Harga Jual:</label>
+                <div class="jajan-management__price-editor">
+                    <span id="productPriceDisplay" class="jajan-management__price-display">Pilih produk...</span>
+                    <input type="number" id="productPriceInput" name="manual_price"
+                        class="jajan-management__price-input" style="display: none;" step="1" />
+                    <button type="button" id="editPriceBtn" class="btn btn-secondary btn-icon"
+                        title="Edit Harga"></button>
+                </div>
+            </div>
+
+            <div id="userCheckResult" class="user-check-result"></div>
+
+            <div class="jajan-management__footer">
+                <button type="submit" class="btn btn-primary">Proses Pesanan Sekarang</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="confirmationContainer" class="jajan-management__confirmation" style="display: none;">
+        <div class="confirmation-box">
+            <div class="confirmation-box__header">
+                <h2>Konfirmasi Pesanan</h2>
+            </div>
+            <div class="confirmation-box__body">
+                <p>Harap periksa kembali detail pesanan Anda sebelum melanjutkan.</p>
+                <div class="confirmation-box__details">
+                    <div class="confirmation-box__detail-item">
+                        <span>User ID:</span>
+                        <strong id="confirm-user-id">-</strong>
+                    </div>
+                    <div class="confirmation-box__detail-item">
+                        <span>Item:</span>
+                        <strong id="confirm-item">-</strong>
+                    </div>
+                    <hr>
+                    <div class="confirmation-box__detail-item">
+                        <span>Total Bayar:</span>
+                        <strong id="confirm-total" class="confirmation-box__total-price">-</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="confirmation-box__actions">
+                <button id="finalConfirmBtn" type="button" class="btn btn-primary">Konfirmasi & Proses</button>
+                <button id="cancelConfirmBtn" type="button" class="btn btn-secondary">Batal</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/jajan.js"></script>

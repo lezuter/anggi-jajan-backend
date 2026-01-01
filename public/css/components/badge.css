@@ -1,0 +1,32 @@
+/* --- BASE BADGE --- */
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* --- STATUS VARIANTS --- */
+.badge-success {
+  background-color: rgba(0, 200, 81, 0.15);
+  color: var(--primary-green);
+}
+
+.badge-pending {
+  background-color: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+}
+
+.badge-failed {
+  background-color: rgba(220, 53, 69, 0.15);
+  color: var(--danger-red);
+}
+
+/* --- OPTIONAL: NEUTRAL BADGE --- */
+.badge-muted {
+  background-color: rgba(138, 145, 138, 0.15);
+  color: var(--text-muted);
+}

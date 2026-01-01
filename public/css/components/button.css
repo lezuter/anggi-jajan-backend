@@ -1,0 +1,54 @@
+/* --- BUTTON BASE --- */
+.btn {
+  display: inline-block;
+  font-family: 'LezuterV2', var(--font-sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: none;
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+  background: var(--primary-green);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #00a84f;
+  transform: translateY(-1px);
+}
+
+/* SECONDARY BUTTON */
+.btn-secondary {
+  background: var(--bg-dark-3);
+  color: var(--text-light);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-dark-2);
+  transform: translateY(-1px);
+}
+
+/* DANGER BUTTON */
+.btn-danger {
+  background: var(--danger-red);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #c42b36;
+  transform: translateY(-1px);
+}
+
+/* ICON BUTTON */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.5rem;
+}

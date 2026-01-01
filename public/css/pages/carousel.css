@@ -1,0 +1,92 @@
+.carousel-page {
+  padding: 2rem;
+}
+
+.carousel-page h1 {
+  font-family: 'LezuterV2', var(--font-sans);
+  font-size: 1.5rem;
+  color: var(--primary-green);
+  margin-bottom: 1.5rem;
+}
+
+.carousel-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.carousel-toolbar p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.carousel-preview {
+  width: 100%;
+  max-width: 500px;
+  max-height: 200px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin: 1rem 0;
+}
+
+.carousel-preview img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.carousel-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.carousel-list li {
+  background-color: var(--bg-dark-2);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel-list li:hover {
+  background-color: var(--bg-dark-3);
+}
+
+.carousel-list img {
+  width: 80px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.carousel-item-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.carousel-item-info .meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Drag & drop effect */
+.sortable-chosen {
+  background: rgba(0,200,81,0.08);
+  border: 1px dashed var(--primary-green);
+}
+
+.sortable-ghost {
+  opacity: 0.4;
+}

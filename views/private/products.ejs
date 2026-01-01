@@ -1,0 +1,197 @@
+<div class="page-container">
+    <h1>Kelola Item Produk</h1>
+
+    <div class="product-management">
+        <div class="product-management__toolbar">
+            <div class="product-management__search-group">
+                <input type="text" id="filterValue" list="filterSuggestions"
+                    placeholder="Cari produk, game, kode, dll...">
+                <datalist id="filterSuggestions"></datalist>
+            </div>
+            <div class="product-management__action-buttons">
+                <button class="btn btn-danger" id="bulkDeleteBtn" style="display: none;">
+                    <span>🗑️</span> Hapus yang Dipilih
+                </button>
+                <button class="btn btn-secondary" id="manageFormsBtn"><span>📝</span> Atur Form Input</button>
+                <button class="btn btn-primary" id="addProductBtn"><span>➕</span> Tambah Nominal</button>
+            </div>
+        </div>
+
+        <div class="product-management__table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAllCheckbox"></th>
+                        <th>Kategori</th>
+                        <th>Kode Konten</th>
+                        <th>Group</th>
+                        <th>Kode Produk</th>
+                        <th>Nama Produk</th>
+                        <th>Deskripsi</th>
+                        <th>Thumbnail</th>
+                        <th>Harga Modal</th>
+                        <th>Harga Jual</th>
+                        <th>Harga Coret</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                </tbody>
+            </table>
+        </div>
+        <div class="product-management__footer">
+            <div class="entries-selector">
+                <label for="limitSelect">Tampilkan:</label>
+                <select id="limitSelect">
+                    <option value="25">25</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                </select>
+                <span>baris</span>
+            </div>
+            <div class="pagination-controls" id="paginationControls">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="productModal" class="modal product-modal">
+    <div class="modal__content" style="max-width: 800px;">
+        <div class="modal__header">
+            <h2 id="modalTitle" class="modal__title">Tambah Nominal Baru</h2>
+            <button class="close-btn modal__close-btn">&times;</button>
+        </div>
+        <form id="productForm" class="modal__form">
+            <div class="modal__body">
+                <input type="hidden" id="formMode" name="formMode" value="add">
+                <input type="hidden" id="productId" name="productId">
+                <input type="hidden" id="oldImage" name="oldImage">
+
+                <div style="display: flex; gap: 2rem;">
+                    <div style="flex: 1;">
+                        <div class="modal__form-group">
+                            <label for="card_code_display">Game (Induk)</label>
+                            <input type="text" id="card_code_display" list="cardSuggestions"
+                                placeholder="Ketik nama atau kode game..." required>
+                            <input type="hidden" id="card_code" name="card_code">
+                            <datalist id="cardSuggestions"></datalist>
+                        </div>
+                        <div class="modal__form-group">
+                            <label for="kategori">Kategori</label>
+                            <input type="text" id="kategori" name="kategori" placeholder="cth: Topup Game, Voucher">
+                        </div>
+                        <div class="modal__form-group">
+                            <label for="group_name">Grup Produk</label>
+                            <input type="text" id="group_name" name="group_name" placeholder="cth: Diamond, Topup UC">
+                        </div>
+                        <div class="modal__form-group">
+                            <label for="product_name">Nama Produk</label>
+                            <input type="text" id="product_name" name="product_name" required
+                                placeholder="cth: 100 Diamonds" maxlength="13">
+                        </div>
+                        <div class="modal__form-group">
+                            <label for="product_code">Kode Produk</label>
+                            <input type="text" id="product_code" name="product_code" required
+                                placeholder="cth: PM500UC">
+                        </div>
+                        <div class="modal__form-group">
+                            <label for="description">Deskripsi Singkat (Opsional)</label>
+                            <input type="text" id="description" name="description"
+                                placeholder="cth: ( 100 + 25 bonus )">
+                        </div>
+                    </div>
+
+                    <div style="flex: 1;">
+                        <div class="modal__form-group">
+                            <label for="image">Upload Thumbnail (Opsional)</label>
+                            <img id="thumbnailPreview" src="" alt="Thumbnail Preview"
+                                style="display:none; max-width:25%; margin-bottom: 5px; border-radius: 8px;">
+                            <input type="file" id="image" name="image" accept="image/*">
+                            <small style="color: #8a918a; margin-top: 5px; display: block;">
+                                Gambar saat ini: <span id="currentProductImage">-</span>
+                            </small>
+                        </div>
+
+                        <div class="modal__form-group">
+                            <label for="price">Harga Modal</label>
+                            <input type="number" id="price" name="price" required min="0" placeholder="Contoh: 100000">
+                            <small id="price-preview" class="price-preview"></small>
+                        </div>
+                        <div class="modal__form-group">
+                            <label for="price_sell">Harga Jual</label>
+                            <input type="number" id="price_sell" name="price_sell" min="0" placeholder="Contoh: 125000">
+                            <small id="price_sell-preview" class="price-preview"></small>
+                        </div>
+
+                        <div class="modal__form-group">
+                            <label for="harga_coret">Harga Coret (Opsional)</label>
+                            <input type="number" id="harga_coret" name="harga_coret" min="0"
+                                placeholder="Harga yang dicoret, cth: 150000">
+                            <small id="harga_coret-preview" class="price-preview"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button type="submit" class="btn btn-primary">Simpan Nominal</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="userInputModal" class="modal user-input-modal">
+    <div class="modal__content">
+        <div class="modal__header">
+            <h2 class="modal__title">Atur Form User Input</h2>
+            <button class="modal__close-btn">&times;</button>
+        </div>
+        <div class="modal__body">
+            <div class="modal__form-group">
+                <label for="searchCardInput">1. Pilih Game yang Akan Diatur</label>
+                <div class="input-group">
+                    <input type="text" id="searchCardInput" list="cardSearchSuggestions"
+                        placeholder="Ketik nama atau kode game...">
+                    <button id="searchCardBtn" class="btn btn-secondary">Cari</button>
+                </div>
+                <datalist id="cardSearchSuggestions"></datalist>
+            </div>
+
+            <div id="game-context-display" class="game-context" style="display: none;">
+                <img id="context-game-image" src="" alt="Game Thumbnail">
+                <div class="game-info">
+                    <span class="label">Mengatur Konfigurasi Untuk:</span>
+                    <h3 id="context-game-name">Nama Game</h3>
+                </div>
+            </div>
+
+            <div id="currentConfigDisplay" style="display:none; color: #8a918a; margin-bottom: 1rem;">
+                Config saat ini: <span id="currentConfigText">-</span>
+            </div>
+
+            <div id="presetButtons" class="preset-buttons" style="display: none; margin-top: 1.5rem;">
+                <label>2. Pilih Konfigurasi Form</label>
+                <div class="preset-grid">
+                    <button data-config="userid_only" class="btn"><span>👤</span> Hanya User ID</button>
+                    <button data-config="userid_zone" class="btn"><span>🌐</span> User ID + Zone ID</button>
+                    <button data-config="userid_server" class="btn"><span>🖥️</span> User ID + Server</button>
+                    <button data-config="custom" class="btn"><span>⚙️</span> Custom</button>
+                </div>
+                <div id="customConfigWrapper" style="display:none; margin-top:1rem;">
+                    <label for="customConfigTextarea" style="color:#8a918a;">Custom Config (JSON)</label>
+                    <textarea id="customConfigTextarea" rows="6"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="modal__footer">
+            <div class="action-group-left">
+                <button id="editConfigBtn" class="btn btn-secondary" style="display: none;"><span>✏️</span>
+                    Edit</button>
+                <button id="cancelSearchBtn" class="btn btn-danger" style="display: none;"><span>❌</span> Batal</button>
+            </div>
+            <button id="saveUserInputConfig" class="btn btn-primary" style="display: none;">Simpan Perubahan</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="../js/products.js"></script>

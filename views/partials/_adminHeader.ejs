@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anggijajan - Control Panel</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-left">
+        <div class="navbar-logo">
+          <a href="/admin"> <%- include('logo/anggijajan-logo') %> </a>
+        </div>
+      </div>
+      <div class="navbar-right">
+        <div class="saldo-box">
+          Saldo: <span id="digiflazzSaldo">Memuat...</span>
+        </div>
+        <button id="logoutBtn" class="btn btn-icon logout-btn" title="Logout">
+          <%- include('icons/logout') %>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="admin-layout">
+    <nav class="sidebar" id="sidebar">
+      <ul class="sidebar-menu">
+        <li id="sidebar-active-indicator"></li>
+        <li>
+          <a href="/admin" hx-target=".main-content" hx-swap="innerHTML transition:true" hx-push-url="true" class="sidebar-link">
+            <%- include('icons/home') %>
+              <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/cards" hx-target=".main-content" hx-swap="innerHTML transition:true" hx-push-url="true" class="sidebar-link">
+            <%- include('icons/cards') %>
+              <span>Cards</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/carousel" hx-target=".main-content" hx-swap="innerHTML transition:true" hx-push-url="true" class="sidebar-link">
+            <%- include('icons/carousel') %>
+              <span>Carousel</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/products" hx-target=".main-content" hx-swap="innerHTML transition:true" hx-push-url="true" class="sidebar-link">
+            <%- include('icons/products') %>
+              <span>Products</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/payment" hx-target=".main-content" hx-swap="innerHTML transition:true" hx-push-url="true" class="sidebar-link">
+            <%- include('icons/wallet') %>
+              <span>Payment</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/jajan" hx-target=".main-content" hx-swap="innerHTML transition:true" hx-push-url="true" class="sidebar-link">
+            <%- include('icons/basket') %>
+              <span>Jajan Produk</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/transactions" hx-target=".main-content" hx-swap="innerHTML transition:true" hx-push-url="true" class="sidebar-link">
+            <%- include('icons/transaction') %> <span>Transaksi</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css">
+      <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/material-darker.min.css">
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/javascript/javascript.min.js"></script>
+      <script src="https://unpkg.com/htmx.org@1.9.5"></script>

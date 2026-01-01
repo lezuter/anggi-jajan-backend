@@ -1,0 +1,167 @@
+<%- include('../partials/_header'); %>
+
+  <div class="order-page">
+    <aside class="order-sidebar">
+      <div class="image-and-info">
+        <img id="game-img" src="" alt="Game Thumbnail">
+        <div class="info-top">
+          <h2 id="game-title">Memuat...</h2>
+          <p id="game-publisher"></p>
+        </div>
+      </div>
+      <p id="game-description"></p>
+    </aside>
+
+    <section class="order-content">
+      <form id="main-order-form">
+        <div class="order-step">
+          <div class="step-header">
+            <span class="step-number">1</span>
+            <p class="step-title">Masukkan UserID</p>
+          </div>
+          <div class="step-content">
+            <div class="user-input" id="user-input-form">
+            </div>
+            <div id="user-check-result" class="user-check-result"></div>
+          </div>
+        </div>
+
+        <div class="order-step" id="pilih-nominal">
+          <div class="step-header">
+            <span class="step-number">2</span>
+            <p class="step-title">Pilih Nominal TopUp</p>
+          </div>
+          <div class="step-content">
+            <div class="product-container">
+            </div>
+          </div>
+        </div>
+
+        <div class="order-step" id="pilih-pembayaran">
+          <div class="step-header">
+            <span class="step-number">3</span>
+            <p class="step-title">Pilih Metode Pembayaran</p>
+          </div>
+          <div class="step-content">
+            <div class="payment-container">
+            </div>
+          </div>
+        </div>
+
+        <div class="order-step">
+          <div class="step-header">
+            <span class="step-number">4</span>
+            <p class="step-title">Masukan Detail</p>
+          </div>
+          <div class="step-content">
+            <div class="form-field">
+              <label for="email">Alamat Email (untuk bukti pembayaran)</label>
+              <input type="email" id="email" name="email" placeholder="anggijajan@topup.com">
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <div class="sticky-order-footer is-hidden">
+    <div class="footer-content-wrapper">
+      <div class="footer-summary">
+        <span id="footer-item-summary">Pilih item dan pembayaran</span>
+        <span id="footer-total-price">Rp -</span>
+      </div>
+      <button type="submit" class="btn-submit-order" form="main-order-form" disabled>Beli Sekarang</button>
+    </div>
+  </div>
+
+  <div id="confirmationModal" class="payment-modal" style="display: none;">
+    <div class="payment-modal-content" style="max-width: 500px;">
+      <div class="payment-modal-header">
+        <h2>Konfirmasi Pesanan</h2>
+        <button id="closeConfirmModalBtn" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="payment-modal-body">
+        <p style="text-align: left;color: #ccc;font-size: 13px;padding: 0 0 0.5rem;margin-top: 0;">
+          Harap periksa kembali detail pesanan Anda sebelum melanjutkan.
+        </p>
+        <div class="transaction-details">
+          <div class="detail-item" id="confirm-nickname-container" style="display: none;">
+            <span>Nickname:</span>
+            <strong id="confirm-nickname"></strong>
+          </div>
+          <div class="detail-item">
+            <span>User ID:</span>
+            <strong id="confirm-user-id">-</strong>
+          </div>
+          <div class="detail-item">
+            <span>Item:</span>
+            <strong id="confirm-item">-</strong>
+          </div>
+          <div class="detail-item">
+            <span>Bayar Dengan:</span>
+            <strong id="confirm-payment-method">-</strong>
+          </div>
+          <div class="detail-item">
+            <span>Harga:</span>
+            <strong id="confirm-harga">-</strong>
+          </div>
+          <div class="detail-item">
+            <span>Fee Pembayaran:</span>
+            <strong id="confirm-fee">-</strong>
+          </div>
+          <hr style="border-color: #444; border-style: dashed; margin: 1rem 0 0.5rem;">
+          <div class="detail-item">
+            <span>Total Bayar:</span>
+            <strong id="confirm-total" class="total-price">-</strong>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="finalConfirmBtn" type="button" class="btn btn-primary">Konfirmasi & Bayar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="paymentModal" class="payment-modal" style="display: none;">
+    <div class="payment-modal-content">
+      <div class="payment-modal-header">
+        <h2>Selesaikan Pembayaran</h2>
+        <button id="closePaymentModalBtn" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="payment-modal-body">
+        <div class="transaction-details">
+          <div class="detail-item">
+            <span>ID Transaksi:</span>
+            <strong id="payment-id">-</strong>
+          </div>
+          <div class="detail-item">
+            <span>Item:</span>
+            <strong id="payment-item">-</strong>
+          </div>
+          <div class="detail-item">
+            <span>Total Bayar:</span>
+            <strong id="payment-total" class="total-price">-</strong>
+          </div>
+          <div class="detail-item">
+            <span>Metode:</span>
+            <strong id="payment-method">-</strong>
+          </div>
+        </div>
+        <div class="payment-instruction">
+          <p id="instruction-text">Klik tombol di bawah untuk menyelesaikan pembayaran.</p>
+          <div id="qr-code-container" style="display: none;">
+            <img id="payment-qr-code" src="" alt="QR Code Pembayaran"
+              style="max-width: 250px; margin: 1rem auto; display: block;">
+          </div>
+          <a href="#" id="payment-action-button" target="_blank" class="btn btn-primary"
+            style="display: none; text-decoration: none; margin-top: 1rem;">
+            Lanjutkan Pembayaran
+          </a>
+          <p class="payment-note">Jendela baru akan terbuka untuk pembayaran.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include('../partials/_footer'); %>
+    <script src="/js/order.js"></script>

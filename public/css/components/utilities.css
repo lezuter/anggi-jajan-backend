@@ -1,0 +1,67 @@
+/* --- VISIBILITY --- */
+.hidden {
+  display: none !important;
+}
+.visible {
+  display: block !important;
+}
+
+/* --- TEXT ALIGN --- */
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+/* --- FONT WEIGHT --- */
+.font-light {
+  font-weight: 300 !important;
+}
+.font-normal {
+  font-weight: 400 !important;
+}
+.font-bold {
+  font-weight: 700 !important;
+}
+
+/* --- MARGIN & PADDING SPACING (SHORTCUTS) --- */
+.m-0 { margin: 0 !important; }
+.mt-1 { margin-top: 0.25rem !important; }
+.mt-2 { margin-top: 0.5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+
+.p-0 { padding: 0 !important; }
+.p-1 { padding: 0.25rem !important; }
+.p-2 { padding: 0.5rem !important; }
+.p-3 { padding: 1rem !important; }
+
+/* --- WIDTH UTILS --- */
+.w-100 {
+  width: 100% !important;
+}
+.max-w-sm {
+  max-width: 400px !important;
+}
+.max-w-md {
+  max-width: 600px !important;
+}
+.max-w-lg {
+  max-width: 900px !important;
+}
+
+/* --- STATE --- */
+.is-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.is-loading {
+  position: relative;
+  opacity: 0.7;
+  pointer-events: none;
+}

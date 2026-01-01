@@ -1,0 +1,675 @@
+/* --- ROOT VARIABLES (PALET WARNA & UKURAN) --- */
+:root {
+    --primary-green: #ccff00;
+    --primary-text: #0d1a00;
+    --bg-dark-1: #1a1c1a;
+    --bg-dark-2: #242624;
+    --bg-dark-3: #2e302e;
+    --border-color: #414540;
+    --text-light: #e0e6e0;
+    --text-muted: #8a918a;
+    --danger-red: #e74c3c;
+    --font-sans: 'Inter', sans-serif;
+    --border-radius: 12px;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================== */
+/*         GENERAL STYLES        */
+/* ============================== */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'LezuterVOL1-Regular', sans-serif;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 55vh;
+}
+
+main {
+  flex: 1;
+}
+
+body {
+  margin: 0;
+  background: url(../images/Background/background.jpg);
+  font-family: 'Segoe UI', sans-serif;
+  color: #2a2d29;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+main {
+  min-height: calc(54.6vh - 200px);
+}
+
+main h2 {
+  color: #ccff00;
+}
+
+/* ============================== */
+/*         LOADING SCREEN        */
+/* ============================== */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 26, 23, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading video {
+  width: 300px;
+  height: auto;
+}
+
+
+/* ============================== */
+/*            NAVBAR             */
+/* ============================== */
+.navbar {
+  background: linear-gradient(to right, transparent 0%, rgba(204, 255, 0, 0.4) 25%, rgba(204, 255, 0, 0.4) 75%, transparent 100%);
+  background-size: 100% 1px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 75px;
+  color: white;
+  z-index: 3;
+}
+
+.navbar-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 1350px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-nav,
+.right-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo .navbar-logo-svg {
+    vertical-align: middle;
+    width: 180px;
+    height: auto;
+    color: var(--primary-green);
+}
+
+.search-icon {
+  width: 21px;
+  cursor: pointer;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.search-icon:hover {
+  transform: scale(1.1);
+}
+
+.search-input {
+  display: none;
+  padding: 0.4rem 0.7rem;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 200px;
+}
+
+.search-input.show {
+  display: inline-block;
+}
+
+.profile img {
+  width: 21px;
+  cursor: pointer;
+}
+
+
+/* ============================== */
+/*         CAROUSEL BANNER       */
+/* ============================== */
+.banner {
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.carousel-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  aspect-ratio: 1440 / 512;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.carousel-btn img {
+  width: 50px;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+}
+
+.carousel-btn:hover img {
+  opacity: 1;
+}
+
+.carousel-btn.prev { left: 20px; }
+.carousel-btn.next { right: 20px; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #ccff00;
+}
+
+
+/* ============================== */
+/*     GAME SECTION & CARDS      */
+/* ============================== */
+.game-section {
+  max-width: 1350px;
+  font-family: 'Goldman', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.game-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+/* CARD STYLE + HOVER */
+.game-card {
+  width: 206px;
+  height: 270px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 1rem;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.game-card:hover .card-overlay {
+  opacity: 1;
+  border-color: #ccff00;
+  border-style: outset;
+  isolation: isolate;
+}
+
+.card-title {
+  color: #ccff00;
+  margin: 0;
+  font-family: -apple-system, Plus Jakarta Sans, sans-serif;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+
+/* ============================== */
+/*      SHOW MORE BUTTON         */
+/* ============================== */
+.btn-show-more {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 12px 30px;
+  background-color: transparent;
+  color: #ccff00;
+  border: 2px solid #ccff00;
+  border-radius: 8px;
+  font-family: 'Goldman', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-show-more:hover {
+  background-color: #ccff00;
+  color: #001f00;
+  transform: scale(1.05);
+}
+
+
+/* ============================== */
+/*     SIDEBAR & HAMBURGER       */
+/* ============================== */
+.hamburger {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #ccff00;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -282px;
+  width: 250px;
+  height: 100%;
+  background-color: #001f00;
+  padding: 2rem 1rem;
+  transition: left 0.3s ease;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
+.close-btn {
+  align-self: flex-end;
+  cursor: pointer;
+  position: relative; /* Dibutuhkan agar z-index berfungsi */
+  z-index: 5; 
+}
+
+.sidebar-link {
+  font-family: 'Goldman', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ccff00;
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.sidebar-icon {
+  width: 30px;
+}
+
+#sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 3;
+  cursor: pointer;
+}
+
+#sidebar-overlay.show {
+  display: block;
+}
+
+
+/* ============================== */
+/*     FOOTER & COOKIE POPUP     */
+/* ============================== */
+footer {
+  text-align: center;
+  background: #2a2d29;
+  color: #ffffff;
+  padding: 1rem;
+  margin-top: 5rem;
+}
+
+.cookie-popup {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 300px;
+  background: #2a2d29;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.4s ease-out;
+  z-index: 1000;
+}
+
+.cookie-popup.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cookie-popup p {
+  font-size: 14px;
+  color: #ceeec6;
+  margin: 0;
+}
+
+.cookie-content {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.cookie-img {
+  width: 50px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.cookie-popup button {
+  background-color: #ccff00;
+  color: #001f00;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cookie-popup button:hover {
+  background-color: #ceeec6;
+  color: #2a2d29;
+}
+
+/* ============================== */
+/* FOOTER BARU          */
+/* ============================== */
+.site-footer {
+  padding: 0; /* biar nggak nambah jarak aneh */
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 5rem;
+}
+
+/* Ini adalah wadah untuk konten utama footer */
+.footer-container {
+  background-color: #2a2d29;
+  padding: 2rem 1rem 2rem;
+  max-width: 1350px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  border-radius: 12px 12px 0 0; /* opsional biar atasnya smooth */
+}
+
+/* Styling untuk setiap kolom di footer */
+.footer-about{
+  text-align: left;
+  display: block;
+  max-width: 550px;
+  padding: 0 1rem;
+}
+
+.footer-about, .footer-links, .footer-social {
+    flex: 1;
+}
+
+.footer-about b {
+    color: #ccff00;
+    text-shadow: 0 0 5px rgba(204, 255, 0, 0.4);
+    font-family: 'Goldman', sans-serif;
+    margin-top: 0;
+}
+
+.footer-about p {
+    line-height: 1.6;
+    color: #fff;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* Center horizontal */
+  justify-content: center;   /* Center vertical */
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.footer-social h3 {
+  margin: 0;
+  white-space: nowrap;         /* Biar h3 gak pindah ke bawah */
+}
+
+.footer-links h3, .footer-social h3 {
+    color: #fff;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 2;
+    transition: color 0.2s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #ccff00;
+}
+
+.footer-links {
+  margin-left: 23rem; /* Atur sesuai kebutuhan */
+}
+
+/* Ini adalah bagian copyright di bawah garis */
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-bottom-inner {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.bottom-links a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.bottom-links a:hover {
+    color: #ccff00;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, rgba(204, 255, 0, 0.4) 25%, rgba(204, 255, 0, 0.4) 75%, transparent 100%);
+  margin: 0 auto;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Grup kanan: links + social */
+.footer-right-group {
+  display: flex;
+  flex-direction: row; /* ✅ biar sejajar kiri-kanan */
+  gap: 2rem;
+  padding: 0 1rem;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Menyamakan posisi vertikal copyright di footer bawah */
+.footer-bottom-inner p {
+  padding: 0 1rem;
+}
+
+/* Biar responsive di mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-right-group {
+    align-items: flex-start;
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+.social-icons svg {
+  width: 30px;
+  height: 30px;
+  color: #ccff00;
+  transition: color 0.3s;
+}
+
+.social-icons svg:hover {
+  color: #ffffff;
+}
+
+
+/* ============================== */
+/*           RESPONSIVE          */
+/* ============================== */
+@media (max-width: 480px) {
+  .cookie-popup {
+    width: 85%;
+    bottom: 15px;
+    right: 10px;
+  }
+}

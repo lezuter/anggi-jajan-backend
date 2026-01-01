@@ -1,0 +1,623 @@
+.order-page {
+  display: flex;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 1rem;
+  gap: 2rem;
+  color: #fff;
+}
+
+.order-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-and-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.image-and-info img {
+  width: 50%;
+  max-width: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.info-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#game-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+#game-publisher {
+  margin: 5px 0 0;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+#game-description {
+  margin-top: 10px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.order-content {
+  flex: 2;
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* === USER INPUT === */
+.user-input {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field.full-width {
+  flex: 1;
+}
+
+.form-field.full-width input {
+  width: 100%;
+}
+
+.user-input label {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.user-input input {
+  padding: 0.75rem;
+  border: 1px solid #444;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+#zone_id {
+  width: 300px;
+}
+
+/* Menghilangkan panah di input type="number" */
+.user-input input[type="number"]::-webkit-inner-spin-button,
+.user-input input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.user-input input[type="number"] {
+  -moz-appearance: textfield;
+  /* Khusus untuk browser Firefox */
+}
+
+/* === PRODUCT GRID & CARDS === */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.product-card {
+  width: 140px;
+  /* fix ukuran biar konsisten */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: #fefffe;
+  border: 2px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  padding: 0;
+  /* biar nggak dobel sama inner element */
+  font-weight: bold;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: #ccff00;
+}
+
+.product-card.selected {
+  background-color: #ccff00;
+  color: #001f00;
+  border-color: #ccff00;
+  transform: translateY(0px) scale(1.02);
+  box-shadow: 0 0 15px rgba(204, 255, 0, 0.4);
+}
+
+.product-name {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 100px;
+  height: 60px;
+  object-fit: contain;
+  align-self: center;
+  margin: -25px 0.75rem 0.75rem;
+}
+
+.product-details {
+  padding: 0.75rem 0.75rem 0;
+  text-align: center;
+  flex-grow: 1;
+  min-height: 4.2em;
+}
+
+.price-container {
+  text-align: right;
+  background-color: #1f1f1f;
+  padding: 0.75rem;
+  border-top: 2px solid #444;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 55px;
+}
+
+.discount-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.original-price {
+  font-size: 12px;
+  color: #888;
+  text-decoration: line-through;
+}
+
+.discount-badge {
+  background-color: #e74c3c;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.final-price {
+  font-weight: bold;
+  color: #ccff00;
+  font-size: 15px;
+}
+
+/* === ORDER STEPS === */
+@font-face {
+  font-family: 'LezuterVol1';
+  src: url('/fonts/LezuterVol1-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.order-step {
+  margin-bottom: 1rem;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: -1rem;
+}
+
+.step-header .step-title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.step-number {
+  color: #ccff00;
+  font-family: 'LezuterVol1', sans-serif;
+  text-shadow: 0 0 5px rgba(204, 255, 0, 0.4);
+  font-size: 3rem;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-content {
+  background-color: #2a2d29;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+/* === SECTION TITLE === */
+.product-section-title,
+.payment-group-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #ccff00;
+  margin: 1.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ccff00;
+}
+
+.step-content>.product-section-title:first-of-type,
+.step-content>.payment-group-title:first-of-type {
+  margin-top: 0;
+}
+
+.product-description {
+  font-size: 0.75rem;
+  color: #1f1f1f;
+  margin: -0.5rem 0 0.5rem;
+  text-align: center;
+  font-weight: normal;
+}
+
+/* === PAYMENT === */
+.payment-group-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.payment-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* biar icon kiri, harga kanan */
+  gap: 1rem;
+  height: 32px;
+  /* FIX: tinggi konsisten */
+  padding: 1rem;
+  background-color: white;
+  border: 2px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-card:hover {
+  transform: translateY(-4px);
+  border-color: #ccff00;
+}
+
+.payment-card.selected {
+  border-color: #ccff00;
+  background-color: #ccff00;
+  box-shadow: 0 0 15px rgba(204, 255, 0, 0.4);
+}
+
+.payment-details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.payment-icon {
+  height: 32px;
+  max-width: 75px;
+  object-fit: contain;
+}
+
+.payment-name {
+  font-weight: 600;
+  color: #343a40;
+  font-size: 13px;
+  min-height: 13px;
+}
+
+.payment-prices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.payment-original-price {
+  font-size: 0.8rem;
+  color: #6c757d;
+  text-decoration: line-through;
+}
+
+.payment-final-price {
+  font-weight: bold;
+  color: #212529;
+  font-size: 1rem;
+}
+
+.payment-original-price,
+.payment-final-price {
+  display: block;
+  line-height: 1.2;
+  min-height: 16px;
+  /* jaga baris harga */
+}
+
+.payment-card.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  /* ga bisa diklik */
+  cursor: not-allowed;
+}
+
+/* ===========================
+   FIX STICKY ORDER FOOTER
+   =========================== */
+.sticky-order-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-dark-3, #2e302e);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  padding: 1rem 0;
+  /* Atur padding atas-bawah saja */
+  border-top: 1px solid var(--border-color, #444);
+  z-index: 100;
+}
+
+.sticky-order-footer.is-hidden {
+  opacity: 0;
+  transform: translateY(100%);
+  /* Geser ke bawah sampai hilang */
+  pointer-events: none;
+  /* Biar tidak bisa diklik saat tersembunyi */
+}
+
+.sticky-order-footer::before {
+  content: '';
+  /* Wajib ada untuk pseudo-element */
+  position: absolute;
+  width: 100%;
+  bottom: -1px;
+  height: .9px;
+  background: linear-gradient(to right, transparent 0%, rgba(204, 255, 0, 0.4) 25%, rgba(204, 255, 0, 0.4) 75%, transparent 100%);
+  margin: 0 auto;
+}
+
+/* TAMBAHKAN ATURAN BARU INI UNTUK PEMBUNGKUSNYA */
+.footer-content-wrapper {
+  max-width: 1350px;
+  /* <-- Lebar sama seperti navbar & konten */
+  width: 100%;
+  margin: 0 auto;
+  /* <-- Biar posisinya di tengah */
+  padding: 0 1rem;
+  /* <-- Padding kanan-kiri sama seperti konten */
+  box-sizing: border-box;
+
+  /* Pindahkan properti ini dari .sticky-order-footer ke sini */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* berhenti di atas footer utama */
+.sticky-order-footer.stop-sticky {
+  position: absolute;
+  bottom: auto;
+  /* nempel persis di atas .site-footer */
+}
+
+.footer-summary {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-light, #fff);
+}
+
+#footer-item-summary {
+  font-size: 0.8rem;
+  color: var(--text-muted, #999);
+}
+
+#footer-total-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary-green, #ccff00);
+}
+
+.sticky-order-footer .btn-submit-order {
+  width: auto;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+.user-check-result {
+  margin-top: 0.75rem;
+  border-radius: 6px;
+  font-size: 13px;
+  min-height: 1.2em;
+  transition: all 0.3s;
+}
+
+.user-check-result.loading {
+  color: #e0e6e0;
+  /* text-light */
+}
+
+.user-check-result.success {
+  background-color: rgba(204, 255, 0, 0.1);
+  color: #ccff00;
+  /* primary-green */
+}
+
+.user-check-result.error {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  /* danger-red */
+}
+
+/* Responsive fix mobile */
+@media (max-width: 768px) {
+  .sticky-order-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .sticky-order-footer .footer-summary {
+    align-items: flex-start;
+  }
+
+  .sticky-order-footer .btn-submit-order {
+    width: 100%;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .payment-group-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* === CSS UNTUK MODAL PEMBAYARAN & KONFIRMASI === */
+
+.payment-modal {
+  display: none;
+  /* Sembunyikan secara default */
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-modal-content {
+  background-color: #2a2d29;
+  color: #fff;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #444;
+  width: 90%;
+  max-width: 500px;
+  /* Disesuaikan agar pas */
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  animation: slide-down 0.3s ease-out;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.payment-modal-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #ccff00;
+}
+
+.payment-modal-header .close-btn {
+  color: #aaa;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.payment-modal-header .close-btn:hover {
+  color: #fff;
+}
+
+.payment-modal-body {
+  padding: 1.5rem;
+}
+
+.transaction-details {
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.detail-item span {
+  color: #999;
+}
+
+.detail-item strong {
+  color: #fff;
+}
+
+.detail-item .total-price {
+  color: #ccff00;
+  font-size: 1.1rem;
+}
+
+.modal-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #444;
+  display: flex;
+  justify-content: flex-end;
+  /* Defaultnya tombol di kanan */
+  gap: 0.75rem;
+  background-color: var(--bg-dark-3);
+  border-radius: 0 0 12px 12px;
+}
+
+/* Penyesuaian khusus untuk modal konfirmasi */
+#confirmationModal .modal-footer {
+  justify-content: space-between;
+}

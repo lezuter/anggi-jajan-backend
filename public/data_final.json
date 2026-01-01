@@ -1,0 +1,712 @@
+{
+  "cardcontent": [
+    {
+      "code": "PU",
+      "section": "Game Populer",
+      "image": "images/pubgm.png",
+      "name": "PUBG Mobile"
+    },
+    {
+      "code": "MO",
+      "section": "Game Populer",
+      "image": "images/mlbb.jpg",
+      "name": "Mobile Legends"
+    },
+    {
+      "code": "FR",
+      "section": "Game Populer",
+      "image": "images/ff.png",
+      "name": "Free Fire"
+    },
+    {
+      "code": "GE",
+      "section": "Game Populer",
+      "image": "images/genshin.jpg",
+      "name": "Genshin Impact"
+    },
+    {
+      "code": "HO",
+      "section": "Game Populer",
+      "image": "images/hok.jpg",
+      "name": "Honor Of Kings"
+    },
+    {
+      "code": "CA",
+      "section": "Game Populer",
+      "image": "images/codm.jpg",
+      "name": "Call Of Duty: Mobile"
+    },
+    {
+      "code": "SA",
+      "section": "Game Populer",
+      "image": "images/sausageman.jpg",
+      "name": "Sausage Man"
+    },
+    {
+      "code": "AR",
+      "section": "Game Populer",
+      "image": "images/aov.jpg",
+      "name": "Arena Of Valor (AOV)"
+    },
+    {
+      "code": "PO",
+      "section": "Game Populer",
+      "image": "images/pb.jpg",
+      "name": "Point Blank"
+    },
+    {
+      "code": "LO",
+      "section": "Game Populer",
+      "image": "images/lordsmobile.jpeg",
+      "name": "Lords Mobile"
+    },
+    {
+      "code": "SP",
+      "section": "Game Populer",
+      "image": "images/speeddrifters.jpg",
+      "name": "Speed Drifters"
+    },
+    {
+      "code": "LI",
+      "section": "Game Populer",
+      "image": "images/lightofthel.png",
+      "name": "Light Of Thel"
+    },
+    {
+      "code": "DR",
+      "section": "Game Populer",
+      "image": "images/dragonraja.jpg",
+      "name": "Dragon Raja"
+    },
+    {
+      "code": "OM",
+      "section": "Game Populer",
+      "image": "images/omegalegends.jpeg",
+      "name": "Omega Legends"
+    },
+    {
+      "code": "TO",
+      "section": "Game Populer",
+      "image": "images/tomandjerrychase.jpeg",
+      "name": "Tom And Jerry: Chase"
+    },
+    {
+      "code": "SU",
+      "section": "Game Populer",
+      "image": "images/supersus.jpeg",
+      "name": "Super SUS"
+    },
+    {
+      "code": "HA",
+      "section": "Game Populer",
+      "image": "images/hago.png",
+      "name": "Hago Diamond ID"
+    },
+    {
+      "code": "VA",
+      "section": "Game Populer",
+      "image": "images/valorant.jpg",
+      "name": "Valorant"
+    },
+    {
+      "code": "BE",
+      "section": "Game Populer",
+      "image": "images/betheking.jpeg",
+      "name": "Be The King"
+    },
+    {
+      "code": "HON",
+      "section": "Game Populer",
+      "image": "images/honkaiimpact3.png",
+      "name": "Honkai Impact 3"
+    },
+    {
+      "code": "TOW",
+      "section": "Game Populer",
+      "image": "images/toweroffantasy.jpg",
+      "name": "Tower Of Fantasy"
+    },
+    {
+      "code": "CH",
+      "section": "Game Populer",
+      "image": "images/chimeraland.jpeg",
+      "name": "Chimeraland"
+    },
+    {
+      "code": "YS",
+      "section": "Game Populer",
+      "image": "images/ys6mobile.jpg",
+      "name": "Ys 6 Mobile"
+    },
+    {
+      "code": "CL",
+      "section": "Game Populer",
+      "image": "images/cloudsong.jpeg",
+      "name": "Cloud Song"
+    },
+    {
+      "code": "HY",
+      "section": "Game Populer",
+      "image": "images/hyperfront.jpeg",
+      "name": "Hyper Front"
+    },
+    {
+      "code": "LIF",
+      "section": "Game Populer",
+      "image": "images/lifeafter.jpeg",
+      "name": "Life After"
+    },
+    {
+      "code": "ON",
+      "section": "Game Populer",
+      "image": "images/opmthestongest.png",
+      "name": "One Punch Man"
+    },
+    {
+      "code": "NE",
+      "section": "Game Populer",
+      "image": "images/neverafter.jpeg",
+      "name": "Never After"
+    },
+    {
+      "code": "HE",
+      "section": "Game Populer",
+      "image": "images/heavensaga.jpg",
+      "name": "Heaven Saga"
+    },
+    {
+      "code": "FO",
+      "section": "Game Populer",
+      "image": "images/footballmaster2.jpeg",
+      "name": "Football Master 2"
+    },
+    {
+      "code": "MU",
+      "section": "Game Populer",
+      "image": "images/muorigin2.jpg",
+      "name": "MU Origin 2"
+    },
+    {
+      "code": "MUO",
+      "section": "Game Populer",
+      "image": "images/muorigin3.jpg",
+      "name": "MU Origin 3"
+    },
+    {
+      "code": "SK",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Sky: Children Of The Light"
+    },
+    {
+      "code": "MA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Marvel Super War"
+    },
+    {
+      "code": "CR",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Crossing Void"
+    },
+    {
+      "code": "CO",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Conquer Online"
+    },
+    {
+      "code": "NA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Naruto Slugfest X"
+    },
+    {
+      "code": "MAN",
+      "section": "Game Populer",
+      "image": "",
+      "name": "MangaToon"
+    },
+    {
+      "code": "LA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Laplace M"
+    },
+    {
+      "code": "HER",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Heroes Evolved"
+    },
+    {
+      "code": "EU",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Eudemons Online"
+    },
+    {
+      "code": "ID",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Idle Legends"
+    },
+    {
+      "code": "LU",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Ludo Club"
+    },
+    {
+      "code": "RE",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Revelation: Infinite Journey"
+    },
+    {
+      "code": "AC",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Ace Racer"
+    },
+    {
+      "code": "MAR",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Marvel Snap"
+    },
+    {
+      "code": "RA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Ragnarok Origin Global"
+    },
+    {
+      "code": "SE",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Seal M Sea"
+    },
+    {
+      "code": "LIFE",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Life Makeover"
+    },
+    {
+      "code": "EN",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Ensemble Stars Music"
+    },
+    {
+      "code": "SAI",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Saint Seiya: Awakening"
+    },
+    {
+      "code": "RI",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Rise Of Kingdom"
+    },
+    {
+      "code": "GO",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Goddess Of Victory: Nikke"
+    },
+    {
+      "code": "PR",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Project Entropy"
+    },
+    {
+      "code": "ST",
+      "section": "Game Populer",
+      "image": "",
+      "name": "State Of Survival: Zombie War"
+    },
+    {
+      "code": "LUN",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Luna Online New World"
+    },
+    {
+      "code": "MI",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Mirage Perfect Skyline"
+    },
+    {
+      "code": "LOK",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Lokapala"
+    },
+    {
+      "code": "HAY",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Hay Day"
+    },
+    {
+      "code": "CLA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Clash Royale"
+    },
+    {
+      "code": "TR",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Trhetan Arena"
+    },
+    {
+      "code": "BR",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Brawl Stars"
+    },
+    {
+      "code": "EA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "EA Sports FC Mobile"
+    },
+    {
+      "code": "LE",
+      "section": "Game Populer",
+      "image": "",
+      "name": "League Of Legends PC"
+    },
+    {
+      "code": "GA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Garena Undawn"
+    },
+    {
+      "code": "DU",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Dunk City Dynasty"
+    },
+    {
+      "code": "HAR",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Harry Potter"
+    },
+    {
+      "code": "HONA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Honaki Star Rail UID"
+    },
+    {
+      "code": "ZE",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Zepeto"
+    },
+    {
+      "code": "DRA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Dragon Nest 2: Evolution"
+    },
+    {
+      "code": "AU",
+      "section": "Game Populer",
+      "image": "",
+      "name": "AU2 Mobile-ID"
+    },
+    {
+      "code": "RU",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Rules Of Survival Mobile"
+    },
+    {
+      "code": "ARE",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Arena Breakout"
+    },
+    {
+      "code": "STU",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Stumble Guys"
+    },
+    {
+      "code": "BL",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Bleach Mobile 3D"
+    },
+    {
+      "code": "KI",
+      "section": "Game Populer",
+      "image": "",
+      "name": "King's Choice"
+    },
+    {
+      "code": "LEG",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Legacy Of Discord"
+    },
+    {
+      "code": "AL",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Alchemy Stars"
+    },
+    {
+      "code": "IDE",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Identity V"
+    },
+    {
+      "code": "LEGE",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Legends Of Runeterra"
+    },
+    {
+      "code": "GR",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Growtopia"
+    },
+    {
+      "code": "EG",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Eggy Party"
+    },
+    {
+      "code": "HAT",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Hatsune Miku Colorful Stage"
+    },
+    {
+      "code": "LOS",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Lost Saga"
+    },
+    {
+      "code": "ME",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Metal Slug : Awakening"
+    },
+    {
+      "code": "AZ",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Azur Lane"
+    },
+    {
+      "code": "AUT",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Auto Chess"
+    },
+    {
+      "code": "SO",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Solo Leveling : Arise"
+    },
+    {
+      "code": "MOO",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Moonlight Blade M"
+    },
+    {
+      "code": "MAP",
+      "section": "Game Populer",
+      "image": "",
+      "name": "MapleStory R: Evolution"
+    },
+    {
+      "code": "DRAG",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Dragonheir : Silent Gods"
+    },
+    {
+      "code": "AE",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Aether Gazer"
+    },
+    {
+      "code": "TA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Tarisland"
+    },
+    {
+      "code": "THE",
+      "section": "Game Populer",
+      "image": "",
+      "name": "The Legend Of Neverland"
+    },
+    {
+      "code": "RAG",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Ragnarok Origin - Link Package"
+    },
+    {
+      "code": "LOV",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Love And Deepseepc"
+    },
+    {
+      "code": "CAB",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Cabal : Infinite Combo - SEA"
+    },
+    {
+      "code": "RAGN",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Ragnarok X: Next Generation"
+    },
+    {
+      "code": "MAG",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Magic Chess: Go Go"
+    },
+    {
+      "code": "THEW",
+      "section": "Game Populer",
+      "image": "",
+      "name": "The Walking Dead: All-Stars"
+    },
+    {
+      "code": "ONEP",
+      "section": "Game Populer",
+      "image": "",
+      "name": "One Punch Man: The Strongest"
+    },
+    {
+      "code": "WA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Warframe"
+    },
+    {
+      "code": "WU",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Wuthering Waves"
+    },
+    {
+      "code": "YU",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Yu-Gi-Oh! Master Duel"
+    },
+    {
+      "code": "SEA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Seal M"
+    },
+    {
+      "code": "ET",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Eternal Three Kingdoms"
+    },
+    {
+      "code": "EC",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Echocalypse"
+    },
+    {
+      "code": "AS",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Ash Echoes"
+    },
+    {
+      "code": "THEG",
+      "section": "Game Populer",
+      "image": "",
+      "name": "The Great War Rivals"
+    },
+    {
+      "code": "WAR",
+      "section": "Game Populer",
+      "image": "",
+      "name": "War Of GAMA"
+    },
+    {
+      "code": "FA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Fashion Dream"
+    },
+    {
+      "code": "MIK",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Miko Era: Twelve Myths"
+    },
+    {
+      "code": "YG",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Yggdrasil: The Origin"
+    },
+    {
+      "code": "DA",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Dawnlands"
+    },
+    {
+      "code": "HI",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Higan: Eruthyll"
+    },
+    {
+      "code": "PI",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Pixel Gun 3D"
+    },
+    {
+      "code": "BLO",
+      "section": "Game Populer",
+      "image": "",
+      "name": "Blood Strike"
+    },
+    {
+      "code": "ONEP1",
+      "section": "Game Populer",
+      "image": "",
+      "name": "One Punch Man World"
+    }
+  ]
+}

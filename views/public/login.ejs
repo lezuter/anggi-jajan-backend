@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Anggijajan</title>
+  <link rel="stylesheet" href="../css/admin.css">
+  <style>
+    /* Khusus container login */
+    .login-container {
+      max-width: 400px;
+      margin: 5% auto;
+      padding: 2rem;
+      background-color: var(--bg-dark-2);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: var(--primary-green);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .login-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .login-container input {
+      padding: 0.75rem;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-dark-1);
+      color: var(--text-light);
+    }
+
+    .login-container input:focus {
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 3px rgba(204, 255, 0, 0.2);
+      outline: none;
+    }
+
+    .login-container button {
+      padding: 0.75rem;
+      border: none;
+      border-radius: var(--border-radius);
+      background-color: var(--primary-green);
+      color: var(--primary-text);
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .login-container button:hover {
+      background-color: #dfff4d;
+    }
+
+    #message {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--danger-red);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    <form id="loginForm">
+      <input type="email" id="email" name="email" placeholder="Email admin" required autocapitalize="off"
+        autocorrect="off">
+      <input type="password" id="password" name="password" placeholder="Password" required autocapitalize="off"
+        autocorrect="off">
+      <button type="submit">Login</button>
+    </form>
+    <p id="message"></p>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+
+</html>

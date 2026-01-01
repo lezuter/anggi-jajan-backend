@@ -1,0 +1,62 @@
+<div class="page-container">
+    <h1>Kelola Carousel</h1>
+    <div class="carousel-management">
+        <div class="carousel-management__toolbar">
+            <p>Geser (drag & drop) gambar untuk mengubah urutan.</p>
+            <div class="carousel-management__action-buttons">
+                <button class="btn btn-danger" id="bulkDeleteBtn" style="display: none;">
+                    <span>🗑️</span> Hapus yang Dipilih
+                </button>
+                <button class="btn btn-primary" id="addCarouselBtn"><span>➕</span> Tambah Gambar Baru</button>
+            </div>
+        </div>
+        <div class="carousel-management__table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAllCheckbox"></th>
+                        <th>Urutan</th>
+                        <th>Preview</th>
+                        <th>Nama File</th>
+                        <th>Link URL</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="carouselTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="carouselModal" class="modal carousel-modal">
+    <div class="modal__content" style="max-width: 500px;">
+        <div class="modal__header">
+            <h2 id="carouselModalTitle" class="modal__title">Tambah Gambar Carousel</h2>
+            <button class="modal__close-btn">&times;</button>
+        </div>
+        <form id="carouselForm" class="modal__form">
+            <div class="modal__body">
+                <input type="hidden" name="formMode" value="add">
+                <input type="hidden" name="slideId">
+                <input type="hidden" name="oldImage">
+
+                <div class="modal__form-group">
+                    <label for="link_url">Link URL (Opsional):</label>
+                    <input type="text" id="link_url" name="link_url" placeholder="https://contoh.com/promo">
+                </div>
+                <div class="modal__form-group">
+                    <label for="imageFile">Upload Gambar:</label>
+                    <input type="file" id="imageFile" name="imageFile" accept="image/*">
+                    <small style="color: #8a918a; margin-top:5px; display:block;">Kosongkan jika tidak ingin mengubah
+                        gambar.</small>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script src="../js/carousel.js"></script>

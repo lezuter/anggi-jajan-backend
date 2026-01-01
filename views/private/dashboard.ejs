@@ -1,0 +1,128 @@
+<%- include('../partials/_adminHeader') %>
+
+<div class="page-container page-<%= body || 'dashboard' %>">
+  
+<%# 
+  Ini adalah layout utama untuk semua halaman admin.
+  Logika di bawah akan memeriksa variabel 'body' yang dikirim dari app.js,
+  lalu memuat file konten yang sesuai.
+%>
+
+<% if (body === 'cards') { %>
+  <%- include('card') %>
+
+<% } else if (body === 'products') { %>
+  <%- include('products') %>
+
+<% } else if (body === 'carousel') { %>
+  <%- include('carousel') %>
+
+<% } else if (body === 'payment') { %>
+  <%- include('payment') %>
+
+<% } else if (body === 'jajan') { %>
+  <%- include('jajan') %>
+
+<% } else if (body === 'transactions') { %>
+   <%- include('transactions') %>
+  
+<% } else if (body === 'dashboard') { %>
+  <style>
+    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .dash-card { background-color: var(--bg-dark-2); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color); }
+    .dash-card__title { font-size: 1rem; color: var(--text-muted); margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+    .profile-info { display: flex; align-items: center; gap: 1rem; }
+    .profile-info__avatar { width: 50px; height: 50px; background: var(--primary-green); color: var(--primary-text); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; }
+    .profile-info__name { font-weight: bold; }
+    .profile-info__email { font-size: 0.85rem; color: var(--text-muted); }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: center; }
+    .stat-item__value { font-size: 2rem; font-weight: bold; color: var(--primary-green); }
+    .transaction-list__item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color); font-size: 0.9rem; }
+    .transaction-list__item:last-child { border-bottom: none; }
+    .notification-list { list-style: none; padding: 0; margin: 0; max-height: 200px; overflow-y: auto; }
+    .notification-list li { background-color: var(--bg-dark-3); padding: 0.75rem; border-radius: 8px; margin-bottom: 0.5rem; font-size: 0.85rem; }
+  </style>
+
+  <h1>Dashboard</h1>
+  
+  <div class="dashboard-grid">
+    <div class="dash-card">
+      <h3 class="dash-card__title">Akun</h3>
+      <div class="profile-info">
+        <div class="profile-info__avatar"><%= user.name.charAt(0).toUpperCase() %></div>
+        <div>
+          <div class="profile-info__name"><%= user.name %></div>
+          <div class="profile-info__email"><%= user.email %></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-card">
+      <h3 class="dash-card__title">Statistik Cepat</h3>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-item__value"><%= stats.totalTransactions %></div>
+          <div>Total Transaksi</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-item__value"><%= stats.totalProducts %></div>
+          <div>Total Produk</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-card" style="grid-column: 1 / -1;">
+      <h3 class="dash-card__title">4 Transaksi Terakhir</h3>
+      <div class="transaction-list">
+        <% if (recentTransactions.length > 0) { %>
+          <% recentTransactions.forEach(trx => { %>
+            <div class="transaction-list__item">
+              <span><%= trx.product_name %> (<%= trx.reference %>)</span>
+              <strong><%= trx.status %></strong>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <p>Belum ada transaksi.</p>
+        <% } %>
+      </div>
+    </div>
+    
+    <div class="dash-card" style="grid-column: 1 / -1;">
+      <h3 class="dash-card__title">Notifikasi Digiflazz</h3>
+      <ul id="notificationList" class="notification-list">
+        <li>Menunggu notifikasi...</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script>
+    const socket = io("http://<%= process.env.VPS_IP %>:<%= process.env.PORT %>"); // Otomatis pakai IP & Port dari .env
+    const notificationList = document.getElementById('notificationList');
+
+    // Hapus pesan "Menunggu..." jika ada
+    socket.on('connect', () => {
+        const firstItem = notificationList.querySelector('li');
+        if (firstItem && firstItem.textContent.includes('Menunggu')) {
+            notificationList.innerHTML = '';
+        }
+    });
+
+    // Terima notifikasi dari server
+    socket.on('admin_notification', (data) => {
+        const newItem = document.createElement('li');
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+        
+        newItem.innerHTML = `[${timeString}] <strong>${data.ref_id}</strong>: ${data.message}`;
+        notificationList.prepend(newItem); // Tambah notif baru di paling atas
+
+        // Batasi jumlah notifikasi
+        if (notificationList.children.length > 10) {
+            notificationList.lastChild.remove();
+        }
+    });
+  </script>
+<% } %>
+
+<%- include('../partials/_adminFooter') %>

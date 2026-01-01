@@ -1,0 +1,1078 @@
+/* =======================================================
+  ADMIN CSS - FINAL CLEANED VERSION
+  Disusun ulang oleh Gemini
+======================================================= */
+
+/* --- 1. SETTINGS & GLOBAL --- */
+@font-face {
+    font-family: 'LezuterV2';
+    src: url('../fonts/Conthrax-SemiBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --primary-green: #ccff00;
+    --primary-text: #0d1a00;
+    --bg-dark-1: #1a1c1a;
+    --bg-dark-2: #242624;
+    --bg-dark-3: #2e302e;
+    --border-color: #414540;
+    --text-light: #e0e6e0;
+    --text-muted: #8a918a;
+    --danger-red: #e74c3c;
+    --font-sans: 'Inter', sans-serif;
+    --border-radius: 12px;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-dark-1);
+    color: var(--text-light);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    margin-top: 0;
+}
+
+/* --- 2. LAYOUT UTAMA --- */
+.admin-layout {
+    display: flex;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background-color: var(--bg-dark-2);
+    border-bottom: 1.2px solid var(--primary-green);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-container {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo .navbar-logo-svg {
+    vertical-align: middle;
+    width: 180px;
+    height: auto;
+    color: var(--primary-green);
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.saldo-box {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+#digiflazzSaldo {
+    color: var(--primary-green);
+}
+
+/* --- SIDEBAR KIRI --- */
+.sidebar {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    width: 120px;
+    background-color: var(--bg-dark-2);
+    border-right: 1.2px solid var(--primary-green);
+    padding: 1rem 0;
+    z-index: 6;
+}
+
+.sidebar-menu {
+    list-style: none;
+    position: relative;
+    top: 100px;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-link {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0.5rem;
+    margin-left: 5px;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-left: 1.2px solid transparent;
+    border-top: 1.2px solid transparent;
+    border-bottom: 1.2px solid transparent;
+
+    /* Animasikan semua perubahan warna, termasuk border */
+    transition: background-color 0.5s ease, color 0.2s ease, border-color 0.8s ease;
+}
+
+.sidebar-link:hover {
+    color: var(--primary-green);
+}
+
+.sidebar-link.active {
+    color: var(--primary-green);
+}
+
+.sidebar-link.active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -2px;
+    width: 12px;
+    background: var(--bg-dark-1);
+    z-index: -1;
+}
+
+.sidebar-link span {
+    font-size: 0.8rem;
+}
+
+.sidebar-icon {
+    width: 24px;
+    object-fit: contain;
+    transition: filter 0.2s ease;
+    filter: invert(62%) sepia(8%) saturate(262%) hue-rotate(69deg) brightness(89%) contrast(86%);
+}
+
+.sidebar-link:hover .sidebar-icon,
+.sidebar-link.active .sidebar-icon {
+    filter: invert(93%) sepia(23%) saturate(3015%) hue-rotate(24deg) brightness(108%) contrast(101%);
+}
+
+#sidebar-active-indicator {
+    position: absolute;
+    left: 5px;
+    width: calc(100% - 5px);
+    /* Lebar penuh dikurangi margin kiri */
+    background-color: var(--bg-dark-1);
+    border-radius: 12px 0 0 12px;
+    border-left: 1.2px solid var(--primary-green);
+    border-top: 1.2px solid var(--primary-green);
+    border-bottom: 1.2px solid var(--primary-green);
+    z-index: 0;
+    /* Posisikan di belakang link */
+    opacity: 0;
+    /* Sembunyikan secara default */
+
+    /* INI KUNCI ANIMASINYA */
+    transition: top 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        opacity 0.2s ease;
+}
+
+/* --- KONTEN UTAMA & FOOTER --- */
+.main-content {
+    width: 100%;
+    max-width: 1400px;
+    min-height: calc(100vh - 70px);
+    margin-left: 120px;
+    margin-top: 70px;
+    padding: 0 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 3rem;
+    box-sizing: border-box;
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}
+
+.main-content main {
+    flex-grow: 1;
+}
+
+.main-content.htmx-swapping {
+    opacity: 0;
+    transform: translateX(-30px);
+    /* Geser ke kiri sejauh 30px */
+}
+
+.page-container {
+    padding-top: 2rem;
+}
+
+.page-container h1 {
+    font-family: 'LezuterV2', var(--font-sans);
+    text-align: left;
+    margin-bottom: 1.5rem;
+    color: var(--primary-green);
+}
+
+/*--admin-footer--*/
+.admin-footer {
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.admin-footer span {
+    color: var(--primary-green);
+}
+
+/* --- 3. KOMPONEN UMUM (GENERIC) --- */
+
+/* Tombol */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    height: 43px;
+}
+
+.btn-icon {
+    padding: 0.5rem;
+    width: 38px;
+    height: 38px;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: var(--bg-dark-3);
+    color: var(--primary-green);
+    border-color: var(--border-color);
+}
+
+.btn-danger {
+    background-color: var(--danger-red);
+    color: white;
+}
+
+.btn-primary {
+    background-color: var(--primary-green);
+    color: var(--primary-text);
+    border-color: var(--primary-green);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #dfff4d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(204, 255, 0, 0.2);
+}
+
+.logout-btn {
+    background-color: var(--danger-red);
+    color: white;
+    border: none;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+    /* Warna merah lebih gelap saat hover */
+}
+
+.logout-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 1rem 1.5rem;;
+    text-align: left;
+    vertical-align: middle;
+    border-top: 1px solid var(--border-color);
+}
+
+thead th {
+    background-color: var(--bg-dark-3);
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase; /* <-- Bikin jadi kapital */
+    border-bottom: 2px solid var(--border-color);
+    border-top: none; /* Header tidak perlu garis atas */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: var(--bg-dark-3);
+}
+
+.table-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px; /* Sudut lebih melengkung */
+    object-fit: cover;
+}
+
+.table-img-preview {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.actions {
+    vertical-align: middle;
+}
+
+.action-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Form */
+.form-group,
+.modal__form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label,
+.modal__form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-dark-1);
+    color: var(--text-light);
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(204, 255, 0, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Modal (Struktur Dasar) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.modal__content {
+    background-color: var(--bg-dark-2);
+    border: 1px solid var(--border-color);
+    margin: 2% auto;
+    border-radius: var(--border-radius);
+    width: 95%;
+    box-shadow: var(--shadow);
+    max-width: 750px;
+    position: relative;
+}
+
+.modal__header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal__title {
+    margin: 0;
+    color: var(--primary-green);
+}
+
+.modal__close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal__body {
+    padding: 2rem;
+}
+
+.modal__footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: var(--primary-green);
+}
+
+.close-btn {
+    /* Style untuk tombol close lama, masih dipakai di beberapa tempat */
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: var(--danger-red);
+}
+
+/* Drag & Drop List */
+.sortable-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.sortable-list li {
+    background-color: var(--bg-dark-1);
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    user-select: none;
+}
+
+.sortable-list li:last-child {
+    border-bottom: none;
+}
+
+.drag-handle {
+    cursor: grab;
+}
+
+.sortable-ghost {
+    opacity: 0.4;
+    background-color: var(--primary-green);
+}
+
+/* =================================
+   STYLE UNTUK TOMBOL TOGGLE STATUS
+   ================================= */
+
+.toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.toggle-switch .toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-switch .toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-dark-3);
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.toggle-switch .toggle-label:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.toggle-input:checked+.toggle-label {
+    background-color: var(--primary-green);
+}
+
+.toggle-input:checked+.toggle-label:before {
+    transform: translateX(22px);
+}
+
+.toggle-status.active {
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+.toggle-status.inactive {
+    color: var(--text-muted);
+}
+
+/* Mengatur ukuran dropdown "Tampilkan baris" */
+.entries-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Jarak antar elemen */
+}
+
+.entries-selector select {
+    width: 80px;
+    /* Atur lebar spesifik, jangan 100% */
+}
+
+/* --- 4. KOMPONEN SPESIFIK (BEM) --- */
+
+/* =======================================
+   WARNA KHUSUS UNTUK KOLOM ID TRANSAKSI
+   ======================================= */
+
+/* Targetkan header kolom pertama (ID Transaksi) */
+.transaction-viewer__table-wrapper thead th:nth-child(1) {
+    background-color: #1c2a38; /* Biru lebih gelap untuk header */
+}
+
+/* Targetkan sel kolom pertama (isi ID Transaksi) */
+.transaction-viewer__table-wrapper tbody td:nth-child(1) {
+    color: #51abe9;
+    font-weight: bold;
+    background-color: var(--bg-dark-1); /* Warna sel sedikit beda biar menonjol */
+}
+
+/* Efek hover untuk sel kolom pertama */
+.transaction-viewer__table-wrapper tbody tr:hover td:nth-child(1) {
+    background-color: var(--bg-dark-3); /* Biru lebih terang saat hover */
+    color: #82c5f5; /* Warna teks hover */
+}
+
+/* Memberi warna khusus untuk nama admin di tabel transaksi */
+.transaction-viewer .created-by-admin {
+    color: var(--primary-green);
+    font-weight: bold;
+}
+/* Halaman: Card, Product, Carousel, Payment, Transaction */
+.card-management,
+.product-management,
+.carousel-management,
+.payment-management,
+.transaction-viewer,
+.jajan-management {
+    background-color: var(--bg-dark-2);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+/* Toolbar Umum */
+[class$="__toolbar"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+[class$="__search-group"] {
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+[class$="__table-wrapper"] {
+    width: 100%;
+    overflow-x: auto;
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+/* Tabel (Warna Latar Belakang) */
+[class$="__table-wrapper"] tbody td {
+    background-color: var(--bg-dark-1); /* <-- Warna dasar baris */
+    color: var(--text-light);
+    transition: background-color 0.2s ease;
+}
+
+/* Baris pertama tidak perlu garis atas */
+[class$="__table-wrapper"] tbody tr:first-child td {
+    border-top: none;
+}
+
+[class$="__table-wrapper"] tbody tr:hover td {
+    background-color: var(--bg-dark-3); /* Sedikit lebih gelap saat hover */
+    color: var(--primary-green);
+}
+
+[class$="__footer"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* --- Badge untuk Status --- */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 5px; /* Bentuk pil */
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+.status-badge.active { /* Untuk status "Aktif", "SUCCESS" */
+    background-color: rgba(204, 255, 0, 0.15);
+    color: var(--primary-green);
+}
+.status-badge.inactive { /* Untuk status "Nonaktif", "FAILED" */
+    background-color: rgba(231, 76, 60, 0.15);
+    color: var(--danger-red);
+}
+.status-badge.pending { /* Untuk status "Pending" */
+    background-color: rgba(230, 230, 25, 0.116);
+    color: #e5e619;
+}
+
+.pagination-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pagination-controls .btn {
+    height: 36px;
+    min-width: 36px;
+    padding: 0.5rem;
+}
+
+/* Halaman: Kelola Card (Modal) */
+.card-modal .modal__content {
+    max-width: 600px;
+}
+
+#gameModal .section-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#gameModal .section-wrapper select {
+    flex-grow: 1;
+}
+
+#gameModal .section-wrapper button {
+    flex-shrink: 0;
+}
+
+/* Halaman: Jajan Manual */
+.jajan-management__description {
+    color: var(--text-muted);
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
+.jajan-management__form-group {
+    margin-bottom: 1.25rem;
+}
+
+.jajan-management__price-label {
+    font-weight: bold;
+}
+
+.jajan-management__price-editor {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.jajan-management__footer {
+    padding: 1.5rem 0 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.jajan-management__confirmation {
+    margin-top: 2rem;
+    background-color: var(--bg-dark-3);
+    /* Latar belakang lebih gelap */
+    padding: 1.5rem 2rem;
+    /* Padding lebih lega */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    /* Border yang jelas */
+}
+
+.jajan-management__confirmation .confirm-header {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+    /* Jarak bawah */
+    padding-bottom: 1rem;
+    /* Padding bawah */
+    border-bottom: 2px solid var(--border-color);
+    /* Garis pemisah lebih tegas */
+}
+
+.jajan-management__confirmation .confirm-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    /* Sejajarkan teks di baris dasar */
+    padding: 0.75rem 0;
+    /* Jarak vertikal */
+    border-bottom: 1px dashed var(--border-color);
+    /* Garis putus-putus */
+    font-size: 0.95rem;
+}
+
+.jajan-management__confirmation .confirm-detail:last-of-type {
+    border-bottom: none;
+    /* Hilangkan border di elemen terakhir */
+}
+
+.jajan-management__confirmation .confirm-detail .label {
+    color: var(--text-muted);
+}
+
+.jajan-management__confirmation .confirm-detail .value {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.jajan-management__confirmation #confirmTotal {
+    color: var(--primary-green);
+    /* Highlight total bayar */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.confirmation-box__total-price {
+    color: var(--primary-green);
+    font-weight: bold;
+    font-size: 1.1rem;
+    /* Opsional: Sedikit lebih besar biar menonjol */
+}
+
+.jajan-management__base-price span {
+    color: var(--danger-red);
+}
+
+.jajan-management__confirmation .confirmation-box__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 0 0;
+    border-top: 2px solid var(--border-color);
+    /* Garis atas lebih tegas */
+    margin-top: 1.5rem;
+}
+
+.jajan-management__confirmation .confirmation-box__actions .btn-secondary {
+    color: var(--danger-red);
+    /* Tombol batal pakai warna merah */
+    border-color: var(--danger-red);
+    background-color: transparent;
+}
+
+.jajan-management__confirmation .confirmation-box__actions .btn-secondary:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+    /* Efek hover merah transparan */
+}
+
+.jajan-management__confirmation .confirmation-box__actions {
+    display: flex;
+    justify-content: flex-end;
+    /* <-- Ini yang membuat rata kanan */
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+}
+
+#priceDisplayContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+#priceDisplayContainer .price-label {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.price-edit-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.jajan-management__price-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-green);
+    flex-grow: 1;
+    /* Biar posisinya pas di kanan */
+    text-align: right;
+    /* Ratakan teks ke kanan */
+}
+
+.price-input {
+    flex-grow: 1;
+}
+
+/* Menghilangkan panah di input type="number" pada halaman Jajan */
+.jajan-management input[type="number"]::-webkit-inner-spin-button,
+.jajan-management input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.jajan-management input[type="number"] {
+    -moz-appearance: textfield;
+    /* Untuk browser Firefox */
+}
+
+/* Halaman: Kelola Produk (Modal Atur Form) */
+.user-input-modal .game-context {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--bg-dark-1);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+}
+
+.user-input-modal .game-context img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+}
+
+.user-input-modal .preset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+}
+
+/* Tampilan config saat ini (mode lihat) */
+.user-input-modal #currentConfigDisplay {
+    background-color: var(--bg-dark-1);
+    padding: 1rem;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+}
+
+.user-input-modal .preset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+}
+
+.user-input-modal .preset-grid .btn {
+    justify-content: flex-start;
+    height: auto;
+    color: var(--primary-text);
+    padding: 0.75rem 1rem;
+    border-width: 2px;
+}
+
+.user-input-modal .preset-grid .btn.btn-primary {
+    background-color: var(--primary-green);
+    box-shadow: 0 0 10px rgba(204, 255, 0, 0.2);
+}
+
+.user-input-modal .modal__footer {
+    justify-content: space-between;
+}
+
+.user-input-modal .action-group-left {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.user-input-modal .preset-buttons label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.user-input-modal .CodeMirror-lines {
+    padding-left: 4px !important;
+}
+
+.user-input-modal .CodeMirror-gutters {
+    background: #263238 !important;
+    border-right: 1px solid #37474F !important;
+}
+
+/* Tampilan config saat ini (mode lihat) */
+#currentConfigDisplay {
+    background-color: var(--bg-dark-1);
+    padding: 1rem;
+    border-radius: 8px;
+    white-space: pre-wrap; /* Agar format JSON rapi */
+    font-family: monospace;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+}
+
+/* Tombol Preset */
+.preset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+}
+
+.preset-grid .btn {
+    justify-content: flex-start; /* Ratakan konten tombol ke kiri */
+    height: auto;
+    padding: 0.75rem 1rem;
+    border-width: 2px;
+}
+
+/* Style saat tombol preset aktif */
+.preset-grid .btn.btn-primary {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 10px rgba(204, 255, 0, 0.2);
+}
+
+#userInputModal .modal-footer {
+    display: flex; /* Aktifkan flexbox */
+    justify-content: space-between; /* Pindahkan grup kiri ke kiri, tombol simpan ke kanan */
+    align-items: center; /* Sejajarkan di tengah vertikal */
+}
+
+/* Grup tombol di kiri (Edit & Batal) */
+#userInputModal .action-group-left {
+    display: flex;
+    gap: 0.75rem; /* Jarak antar tombol Edit & Batal */
+}
+
+.preset-buttons label{
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+/* Beri padding kiri pada area ketik agar tidak menutupi nomor baris */
+.CodeMirror-lines {
+    padding-left: 4px !important; 
+}
+
+/* Pastikan gutter (tempat nomor baris) punya lebar */
+.CodeMirror-gutters {
+    background: #263238 !important; /* Samakan dengan tema material-darker */
+    border-right: 1px solid #37474F !important;
+}
+
+.filter-controls { display: flex; gap: 0.5rem; }
+.filter-controls .btn.active { 
+    background-color: var(--primary-green);
+    color: var(--primary-text);
+    font-weight: bold;
+}
+
+/* --- 5. UTILITIES --- */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark-1);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--text-muted);
+    border-radius: 10px;
+    border: 3px solid var(--bg-dark-1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-green);
+}

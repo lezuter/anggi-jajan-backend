@@ -1,0 +1,117 @@
+<div class="page-container">
+    <h1>Kelola Konten Card</h1>
+    <div class="card-management">
+        <div class="card-management__toolbar">
+            <div class="card-management__search-group">
+                <input type="text" id="searchName" placeholder="Cari berdasarkan nama...">
+            </div>
+            <div class="card-management__action-buttons">
+                <button class="btn btn-danger" id="bulkDeleteBtn" style="display: none;">
+                    <span>🗑️</span> Hapus yang Dipilih
+                </button>
+                <button class="btn btn-secondary" id="reorderBtn"><span>🔧</span> Atur Urutan</button>
+                <button class="btn btn-primary" id="addGameBtn"><span>➕</span> Tambah Card Baru</button>
+            </div>
+        </div>
+        <div class="card-management__table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAllCheckbox"></th>
+                        <th>Gambar</th>
+                        <th>Nama Konten</th>
+                        <th>Kode</th>
+                        <th>Publisher</th>
+                        <th>Section</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="gameTableBody"></tbody>
+            </table>
+        </div>
+        <div class="card-management__footer">
+            <div class="entries-selector">
+                <label for="limitSelect">Tampilkan:</label>
+                <select id="limitSelect">
+                    <option value="25" selected>25</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                </select>
+                <span>baris</span>
+            </div>
+            <div class="pagination-controls" id="paginationControls"></div>
+        </div>
+    </div>
+</div>
+
+<div id="gameModal" class="modal card-management-modal">
+    <div class="modal__content">
+        <div class="modal__header">
+            <h2 id="modalTitle" class="modal__title">Tambah Card Baru</h2>
+            <button class="modal__close-btn">&times;</button>
+        </div>
+        <form id="gameForm" class="modal__form">
+            <div class="modal__body">
+                <input type="hidden" name="formMode" value="add">
+                <input type="hidden" name="originalCode">
+                <input type="hidden" name="oldImage">
+
+                <div class="form-group">
+                    <label for="name">Nama Game</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="modal__form-group">
+                    <label for="sectionSelect">Section</label>
+                    <div class="section-wrapper">
+                        <select id="sectionSelect" name="section" required></select>
+                        <button type="button" id="addNewSectionBtn" class="btn btn-secondary">Baru</button>
+                    </div>
+                </div>
+                <div id="newSectionContainer" class="section-wrapper" style="display:none; margin-top: 10px;">
+                    <input type="text" id="newSectionInput" name="newSection" placeholder="Nama Section Baru...">
+                    <button type="button" id="commitSectionBtn" class="btn btn-primary">OK</button>
+                </div>
+                <div class="form-group">
+                    <label for="publisher">Publisher</label>
+                    <input type="text" id="publisher" name="publisher">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Deskripsi Produk</label>
+                    <textarea id="description" name="description"
+                        placeholder="Deskripsi singkat game atau produk..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageFile">Upload Gambar (Gambar saat ini: <span id="currentImage">Tidak
+                            ada</span>)</label>
+                    <input type="file" id="imageFile" name="imageFile" accept="image/*">
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="reorderModal" class="modal reorder-modal">
+
+    <div class="modal__content" style="max-width: 500px;">
+        <div class="modal__header">
+            <h2 class="modal__title">Atur Urutan Section</h2>
+            <button class="modal__close-btn" id="closeReorderBtn">&times;</button>
+        </div>
+        <div class="modal__body">
+            <p>Geser (drag & drop) item untuk mengubah urutan.</p>
+            <ul id="sortable-list" class="sortable-list"></ul>
+        </div>
+        <div class="modal__footer">
+            <button class="btn btn-primary" id="saveOrderBtn">Simpan Urutan</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script src="/js/card.js"></script>
