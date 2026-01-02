@@ -1,8 +1,8 @@
 # 🛒 AnggiJajan - Top-Up Game & PPOB Backend
 
 A high-performance RESTful API designed to automate digital product transactions (Game Top-up & PPOB). Built with **Node.js** and **Express.js**, featuring real-time admin notifications and secure payment gateway integration.
-![Index](https://github.com/user-attachments/assets/60a26eed-b16a-4cf6-b7de-6c2f3c931a76)
 
+![Index](https://github.com/user-attachments/assets/60a26eed-b16a-4cf6-b7de-6c2f3c931a76)
 
 ## 🚀 Key Features
 
